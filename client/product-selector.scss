@@ -1,0 +1,150 @@
+.product-selector {
+    width: 400px;
+    height: 500px;
+    padding: 20px;
+    margin: 0 auto;
+    box-shadow: 2px 5px 10px $gray;
+
+    &_title {
+        padding: 10px 0;
+        text-align: center;
+        font-size: $font-size1;
+    }
+
+    &_name {
+        padding: 10px 0;
+        font-size: $font-size2;
+        border-top: solid 1px $gray;
+    }
+
+    &_attr-container {
+        padding: 10px 0;
+        font-size: $font-size2;
+        border-top: solid 1px $gray;
+    }
+
+    &_attr {
+        text-transform: capitalize;
+        font-size: $font-size2;
+    }
+
+    &_values {
+        li {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: solid 1px $gray;
+            margin: 10px;
+            position: relative;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+
+    &-invalid {
+        color: $gray;
+
+        &:after {
+            content: '';
+            display: block;
+            background: $gray;
+            opacity: 0.3;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+        }
+    }
+
+    &-selected {
+        &:after, &:before {
+            content: '';
+            display: block;
+            background: $green;
+            top: 0;
+            right: 0;
+            height: 20px;
+            width: 20px;
+            position: absolute;
+        }
+
+        &:after {
+            background: #ffffff;
+            transform: rotateZ(45deg);
+            margin-right: 3px;
+            margin-top: 6px;
+            width: 28px;
+        }
+    }
+
+    &_selected, &_error {
+        text-transform: capitalize;
+        padding: 10px 0;
+        font-size: $font-size2;
+        border-top: solid 1px $gray;
+    }
+
+    &.done {
+        height: 620px;
+
+        .product-selector_error {
+            display: none;
+        }
+    }
+
+    &.fail {
+        div {
+            display: none;
+        }
+
+        .product-selector_error {
+            display: block;
+        }
+    }
+
+    &.in-progress {
+        position: relative;
+        overflow: hidden;
+
+        div, ul {
+            display: none;
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            border-radius: 50%;
+            background: $green;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            animation-duration: 1s;
+            animation-name: fadeIn;
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            padding-bottom: 0;
+            width: 0;
+        }
+
+        to {
+            padding-bottom: 200%;
+            width: 150%;
+        }
+    }
+
+    .raw-data {
+        text-transform: capitalize;
+        padding: 10px 0;
+        // font-size: $font-size2;
+        border-top: solid 1px $gray;
+    }
+}

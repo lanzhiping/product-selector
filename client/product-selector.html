@@ -1,0 +1,20 @@
+<div ng-class="ctrl.getSelectorStatus()" class="product-selector">
+    <div class="product-selector_title">Product Selector</div>
+    <div class="product-selector_name">Product Name</div>
+    <div class="product-selector_attr-container" ng-repeat="(attr, attrValues) in ctrl.allAttrs">
+        <div class="product-selector_attr">{{attr}}</div>
+         <ul class="product-selector_values">
+            <li ng-repeat="attrValue in attrValues"
+                ng-click="ctrl.clickingAtAttrValue(attrValue, attr)"
+                class="product-selector-{{attrValue.status}}" >{{attrValue.value}}</li>
+        </ul>
+    </div>
+    <div class="product-selector_selected">selected sku id: {{ctrl.getSelectedSku().id}}</div>
+    <div class="product-selector_error">Please refresh and try again.</div>
+    <ul class="raw-data">
+        <li>Raw Data:</li>
+        <li ng-repeat="sku in ctrl.skus">
+            <span>{{sku.id}}: {{sku.attrs}}</span>
+        </li>
+    </ul>
+</div>
